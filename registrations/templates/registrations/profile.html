@@ -1,0 +1,25 @@
+{% extends 'registrations/base.html' %}
+    {% block details%}
+    <h1>
+        {% for user in data%}
+            {% if user.username %}
+            <br>
+                Name: {{user.first_name}} {{user.last_name}}<br>
+                Mobile Number: {{user.mob}} <br>
+                Team Name: {{user.teamName}} <br>
+                Team-id: {{user.teamId}} <br> 
+                E-Mail: {{user.mail}} <br>
+                D-O-B: {{user.dob}} <br>
+                College: {{user.college}} <br>
+                Course: {{user.course}} <br>
+                Year: {{user.year}} <br>
+                About:  {{user.about}} <br>
+                Skills: {{user.skills}} <br>
+                Github: {{user.githubUrl}} <br>
+                Linkedin: {{user.linkedinUrl}} <br>
+            {%endif%}
+        {%endfor%}
+    </h1>
+
+    <a href="http://127.0.0.1:8000/profile/register"><h1>Register</h1></a>
+    {%endblock%}
