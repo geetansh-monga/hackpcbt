@@ -3,6 +3,8 @@ from django.db import models
 class team(models.Model):
   team_id = models.CharField(max_length=6)
   team_name = models.CharField(max_length=20)
+  def __str__(self):
+    return self.team_id
 
 class user(models.Model):
     year = [
@@ -32,6 +34,7 @@ class user(models.Model):
     githubUrl = models.URLField()
     linkedinUrl = models.URLField()
     profile_pic = models.ImageField(storage='600kb',blank=True,default='.static/resources/hack_logo-hd.png')
+    team_id = models.ForeignKey(team, on_delete = models.CASCADE)
 
     def __str__(self):
       return self.first_name
