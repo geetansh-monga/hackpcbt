@@ -1,0 +1,12 @@
+{% extends 'registrations/base.html' %}
+{% load crispy_forms_tags %}
+    {%block form%}
+    <a href="{% url 'registrations:create_team' %}"><h1>Create New Team</h1></a>
+    <form class="form-style-4" action="" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="save">
+        </form>    
+    <a href="{% url 'accounts:logout_page'%}"><h1>Logout</h1></a>
+
+    {%endblock%}

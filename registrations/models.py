@@ -1,17 +1,17 @@
 from django.db import models
 
 class team(models.Model):
-  team_id = models.CharField(max_length=6)
-  team_name = models.CharField(max_length=20)
+  team_id = models.CharField(unique=True,max_length=6,default='000000')
+  team_name = models.CharField(max_length=20,blank=True,default='default')
   def __str__(self):
     return self.team_id
 
 class user(models.Model):
     year = [
-  (1, "1st"),
-  (2, "2nd"),
-  (3, "3rd"),
-  (4, "4th"),
+  ("1st", "1st"),
+  ("2nd", "2nd"),
+  ("3rd", "3rd"),
+  ("4th", "4th"),
   ]
     title = [
     ('male', 'Mr.'),
@@ -34,7 +34,8 @@ class user(models.Model):
     githubUrl = models.URLField()
     linkedinUrl = models.URLField()
     profile_pic = models.ImageField(storage='600kb',blank=True,default='.static/resources/hack_logo-hd.png')
-    team_id = models.ForeignKey(team, on_delete = models.CASCADE)
+    team_id = models.ForeignKey(team, on_delete = models.CASCADE,default='000000')
+    teamname = models.CharField(max_length=20)
 
     def __str__(self):
       return self.first_name

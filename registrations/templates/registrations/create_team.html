@@ -1,0 +1,9 @@
+{% extends 'registrations/base.html' %}
+{% load crispy_forms_tags %}
+    {% block team_form%}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{team_form|crispy}}
+        <input type="submit" value="Register">
+        </form>
+    {%endblock%}

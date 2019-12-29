@@ -1,25 +1,25 @@
 {% extends 'registrations/base.html' %}
     {% block details%}
-    <h1>
-        {% for user in data%}
-            {% if user.username %}
+    <h1> Student Information
+        {% for profile in data%}
+            {% if profile.username == user %}
             <br>
-                Name: {{user.first_name}} {{user.last_name}}<br>
-                Mobile Number: {{user.mob}} <br>
-                Team Name: {{user.teamName}} <br>
-                Team-id: {{user.teamId}} <br> 
-                E-Mail: {{user.mail}} <br>
-                D-O-B: {{user.dob}} <br>
-                College: {{user.college}} <br>
-                Course: {{user.course}} <br>
-                Year: {{user.year}} <br>
-                About:  {{user.about}} <br>
-                Skills: {{user.skills}} <br>
-                Github: {{user.githubUrl}} <br>
-                Linkedin: {{user.linkedinUrl}} <br>
+                Name: {{profile.first_name}} {{profile.last_name}}<br><br>
+                Mobile Number: {{profile.mob}} <br><br>
+                Team Name: {{profile.teamname}} <br><br>
+                Team-id: {{profile.team_id}} <br><br>
+                E-Mail: {{profile.mail}} <br><br>
+                D-O-B: {{profile.dob}} <br><br>
+                College: {{profile.college}} <br><br>
+                Course: {{profile.course}} <br><br>
+                Year: {{profile.year}} <br><br>
+                About:  {{profile.about}} <br><br>
+                Skills: {{profile.skills}} <br><br>
+                Github: {{profile.githubUrl}} <br><br>
+                Linkedin: {{profile.linkedinUrl}} <br><br>
             {%endif%}
         {%endfor%}
     </h1>
 
-    <a href="http://127.0.0.1:8000/profile/register"><h1>Register</h1></a>
+    <a href="{% url 'accounts:logout_page'%}"><h1>Logout</h1></a>
     {%endblock%}
