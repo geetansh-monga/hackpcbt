@@ -1,5 +1,6 @@
 from django import forms
 from .models import user,team
+from django.forms.widgets import DateInput
 
 class reg_form(forms.ModelForm):
     class Meta:
@@ -7,7 +8,7 @@ class reg_form(forms.ModelForm):
         fields = ['first_name', 'last_name', 'mob', 'title', 'mail','dob','college','course','year','city','about',
                     'skills','githubUrl','linkedinUrl','team_id']
         widgets = {
-            'dob': forms.SelectDateWidget,
+            'dob': DateInput(attrs={'type': 'date'})
         }
 
 
