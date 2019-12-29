@@ -9,34 +9,33 @@ class team(models.Model):
 
 class user(models.Model):
     year = [
-  ("1st", "1st"),
-  ("2nd", "2nd"),
-  ("3rd", "3rd"),
-  ("4th", "4th"),
+  ("first", "1st"),
+  ("second", "2nd"),
+  ("third", "3rd"),
+  ("fourth", "4th"),
   ]
     title = [
     ('male', 'Mr.'),
     ('female', 'Mrs.')
     ]
 
-    username = models.CharField(max_length=25,null=True)
+    username = models.CharField(max_length=25,blank=True,)
     first_name = models.CharField(max_length=20,null=False)
     last_name = models.CharField(max_length=20,null=True)
-    mob = models.CharField(max_length=10,unique=True,null=False)
-    title = models.CharField(max_length=6,choices=title,default='other')
-    mail = models.EmailField(unique=True,null=False)
-    dob = models.DateField(null=False)
-    college = models.CharField(max_length=30,null=True)
-    course = models.CharField(max_length = 25,null=True)
-    year = models.PositiveIntegerField(choices=year)
-    city = models.CharField(max_length=30,null=False)
-    about = models.TextField(null=False)
-    skills = models.TextField(null=False)
+    mob = models.CharField(max_length=10,unique=True,blank=False)
+    title = models.CharField(max_length=6,choices=title,blank=False)
+    mail = models.EmailField(unique=True,blank=False)
+    dob = models.DateField(blank=False)
+    college = models.CharField(max_length=30)
+    course = models.CharField(max_length = 25,blank=False)
+    year = models.CharField(max_length=6,choices=year)
+    city = models.CharField(max_length=30,blank=False)
+    about = models.TextField(blank=False)
+    skills = models.TextField(blank=False)
     githubUrl = models.URLField()
     linkedinUrl = models.URLField()
-    profile_pic = models.ImageField(storage='600kb',blank=True,default='.static/resources/hack_logo-hd.png')
     team_id = models.ForeignKey(team, on_delete = models.CASCADE)
-    teamname = models.CharField(max_length=20)
+    teamname = models.CharField(max_length=30,blank=True)
 
     def __str__(self):
       return self.first_name

@@ -5,7 +5,7 @@ class reg_form(forms.ModelForm):
     class Meta:
         model = user
         fields = ['first_name', 'last_name', 'mob', 'title', 'mail','dob','college','course','year','city','about',
-                    'skills','githubUrl','linkedinUrl','profile_pic','team_id']
+                    'skills','githubUrl','linkedinUrl','team_id']
         widgets = {
             'dob': forms.SelectDateWidget,
         }
