@@ -20,7 +20,7 @@ class user(models.Model):
     ('female', 'Mrs.')
     ]
 
-    username = models.CharField(max_length=25,blank=True,)
+    username = models.CharField(max_length=40,blank=True,)
     first_name = models.CharField(max_length=20,null=False)
     last_name = models.CharField(max_length=20,null=True)
     mob = models.CharField(max_length=10,unique=True,blank=False)
