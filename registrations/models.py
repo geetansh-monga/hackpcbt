@@ -1,8 +1,9 @@
 from django.db import models
 
 class team(models.Model):
-  team_id = models.CharField(unique=True,max_length=6,default='000000')
-  team_name = models.CharField(max_length=20,blank=True,default='default')
+  team_id = models.CharField(unique=True,max_length=6)
+  team_name = models.CharField(max_length=20)
+ 
   def __str__(self):
     return self.team_id
 
@@ -18,9 +19,9 @@ class user(models.Model):
     ('female', 'Mrs.')
     ]
 
-    username = models.CharField(max_length=10,null=False)
-    first_name = models.CharField(max_length=15,null=False)
-    last_name = models.CharField(max_length=15)
+    username = models.CharField(max_length=25,null=True)
+    first_name = models.CharField(max_length=20,null=False)
+    last_name = models.CharField(max_length=20,null=True)
     mob = models.CharField(max_length=10,unique=True,null=False)
     title = models.CharField(max_length=6,choices=title,default='other')
     mail = models.EmailField(unique=True,null=False)
@@ -34,7 +35,7 @@ class user(models.Model):
     githubUrl = models.URLField()
     linkedinUrl = models.URLField()
     profile_pic = models.ImageField(storage='600kb',blank=True,default='.static/resources/hack_logo-hd.png')
-    team_id = models.ForeignKey(team, on_delete = models.CASCADE,default='000000')
+    team_id = models.ForeignKey(team, on_delete = models.CASCADE)
     teamname = models.CharField(max_length=20)
 
     def __str__(self):

@@ -1,8 +1,6 @@
 {% extends 'registrations/base.html' %}
     {% block details%}
     <h1> Student Information
-        {% for profile in data%}
-            {% if profile.username == user %}
             <br>
                 Name: {{profile.first_name}} {{profile.last_name}}<br><br>
                 Mobile Number: {{profile.mob}} <br><br>

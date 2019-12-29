@@ -8,10 +8,10 @@ from .registration_form import reg_form,team_form
 
 def profile(request):
     username = request.user.username
-    user1 = user.objects.all()
-    for users in user1:
-        if users.username == username:
-            return render(request, 'registrations/profile.html',{'data' : user1,'user' : username})
+    profiles = user.objects.all()
+    for participants in profiles:
+        if participants.username == username:
+            return render(request,'registrations:profile',{'profile' : participants})
     else:
         return redirect('registrations:create_user')
 
@@ -20,24 +20,21 @@ def register_user(request):
     username = request.user.username
     form = reg_form(request.POST or None)
     if form.is_valid():    
-        mobile_no = form.cleaned_data.get("mob")
-        teamId = form.cleaned_data.get("team_id")
         form.save()
-        obj_user = user.objects.get(mob = mobile_no)
-        obj_team = team.objects.get(team_id = teamId )
-        obj_user.username = username
-        obj_user.teamname = obj_team.team_name
-        obj_user.save()
+        # obj_user = user.objects.get(mob = mobile_no)
+        # obj_user.username = username
+        # obj_user.save(['username'])
         return redirect('registrations:profile')
     else:
         form = reg_form()
     return render(request,'registrations/form.html',{'form' : form}) 
 
+@login_required(login_url='accounts:login_page')
 def register_team(request):
     form = team_form(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('registrations:profile')
+        return redirect('registrations:create_user')
     else:
         form = team_form()
     return render(request,'registrations/create_team.html',{'team_form' : team_form})
