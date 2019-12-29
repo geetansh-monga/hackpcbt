@@ -1,1 +1,1 @@
-web: gunicorn hackpcbt.wsgi
+web: gunicorn hackpcbt.wsgi --log-file -
