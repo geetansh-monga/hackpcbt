@@ -4,7 +4,7 @@
     <h1>Sign Up form</h1>
         <form method="POST">{% csrf_token %}
             {{form|crispy}}
-            <input type="submit" value="save">
+            <input type="submit" value="sign up">
         </form>
     <a href="{% url 'accounts:login_page' %}"><h1>Already Have Account?</h1></a>
     {%endblock%}
