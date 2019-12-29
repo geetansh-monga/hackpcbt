@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&831=f68(uf8o93p&@zaet=&jecd*o8$g#7!smf3#pr)@cgfn2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://hackpcbt.herokuapp.com/']
 

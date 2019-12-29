@@ -35,6 +35,7 @@ def register_user(request):
             college = form.cleaned_data['college'],
             course = form.cleaned_data['course'],
             city = form.cleaned_data['city'],
+            year = form.cleaned_data['year'],
             about = form.cleaned_data['about'],
             skills = form.cleaned_data['skills'],
             githubUrl = form.cleaned_data['githubUrl'],
