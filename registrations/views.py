@@ -33,6 +33,7 @@ def register_user(request):
             mail = form.cleaned_data['mail'],
             dob = form.cleaned_data['dob'],
             college = form.cleaned_data['college'],
+            year = form.cleaned_data['year'],
             course = form.cleaned_data['course'],
             city = form.cleaned_data['city'],
             about = form.cleaned_data['about'],
