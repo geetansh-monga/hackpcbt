@@ -1,5 +1,5 @@
-import os
 import django_heroku
+import os
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
