@@ -22,7 +22,6 @@ ALLOWED_HOSTS = ['https://hackpcbt.herokuapp.com/']
 
 INSTALLED_APPS = [
     'accounts',
-    'website',
     'crispy_forms',
     'registrations',
     'django.contrib.admin',
@@ -114,8 +113,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# static files
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #Heroku
 django_heroku.settings(locals())

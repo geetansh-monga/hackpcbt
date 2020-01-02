@@ -1,6 +1,10 @@
 {% extends 'registrations/base.html' %}
 {% load crispy_forms_tags %}
     {% block team_form%}
+    <div class="flex-wrapper">
+        <div class="page-heading">
+          <h1>< Team <span>Form</span> ></h1>
+        </div>
         <form action="" method="POST">
             {% csrf_token %}
             {{team_form|crispy}}
