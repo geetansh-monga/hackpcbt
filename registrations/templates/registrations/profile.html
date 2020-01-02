@@ -1,6 +1,9 @@
 {% extends 'registrations/base.html' %}
     {% block details%}
-    <h1> Student Information
+    <div class="flex-wrapper">
+        <div class="page-heading">
+          <h1>< Student <span>Informations</span> ></h1>
+        </div>
             <br>
                 Name: {{profile.first_name}} {{profile.last_name}}<br><br>
                 Mobile Number: {{profile.mob}} <br><br>
