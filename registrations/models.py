@@ -14,22 +14,21 @@ class user(models.Model):
   ("third", "3rd"),
   ("fourth", "4th"),
   ]
-  
     title = [
     ('male', 'Mr.'),
     ('female', 'Mrs.')
     ]
 
-    username = models.CharField(max_length=40,blank=True,)
+    username = models.CharField(max_length=50,blank=True,)
     first_name = models.CharField(max_length=20,null=False)
     last_name = models.CharField(max_length=20,null=True)
     mob = models.CharField(max_length=10,unique=True,blank=False)
     title = models.CharField(max_length=6,choices=title,blank=False)
     mail = models.EmailField(unique=True,blank=False)
-    dob = models.TextField(blank=False)
+    dob = models.DateField(blank=False)
     college = models.CharField(max_length=30)
     course = models.CharField(max_length = 25,blank=False)
-    year = models.CharField(max_length=10,choices=year,blank=False)
+    year = models.CharField(max_length=6,choices=year)
     city = models.CharField(max_length=30,blank=False)
     about = models.TextField(blank=False)
     skills = models.TextField(blank=False)
