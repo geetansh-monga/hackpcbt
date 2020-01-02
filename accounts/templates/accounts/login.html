@@ -1,31 +1,10 @@
 {% extends 'registrations/base.html' %}
 {% load crispy_forms_tags %}
-<div class="flex-wrapper">
-    <div class="page-heading">
-      <h1>< Registration <span>Portal</span> ></h1>
-    </div>
-  <div class="login-page">
-    <div class="form">
-      <form class="register-form" method="POST">{% csrf_token %}
-        <!-- <input type="text" placeholder="Name" />
-        <input type="password" placeholder="Password" />
-        <input type="text" placeholder="Email Address" /> -->
+
         {%block register%}
             {{form_signup|crispy}}
         {%endblock%}
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="login-form" method="POST">{% csrf_token %}
-        <!-- <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" /> -->
+
         {%block login%}
-            {{form_login}}
+            {{form_login|crispy}}
         {%endblock%}
-        <button>Login</button>
-        <p class="message">
-          Not registered? <a href="#">Create an account</a>
-        </p>
-      </form>
-    </div>
-</div>
